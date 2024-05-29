@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projet AI</title>
+<style>
+    body {
+        font-family: Garamond, serif;
+        margin: 0;
+        padding: 0;
+    }
+    #pdf-container {
+        width: 100vw;
+        height: 100vh;
+		margin-left: auto;
+        margin-right: auto;
+		background-color: #f0e3dd;
+		text-align: center;
+    }
+	video {
+		margin-left: auto;
+        margin-right: auto;
+		width: 320px;
+		padding: 10px;
+	}
+	h1 {
+	    margin: 0;
+		padding: 10px;
+		padding-top: 30px;
+		font-size: 3em;
+	}
+	p {
+	    font-size: 1.5em;
+	}
+</style>
+</head>
+<body>
+
+<div id="pdf-container"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if 'w' key is pressed
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'w') {
+                displayPDF('Hey AI can you generate images of a.pdf');
+            }
+			else if (event.key === 'a') {
+                displayVideos();
+            }
+			else if (event.key === 's') {
+                displayPDF('And the problems in presents.pdf');
+            }
+			else if (event.key === 'd') {
+                displayPDF('The bias of AI.pdf');
+            }
+			else if (event.key === 'f') {
+                displayPDF('Borcelle University.pdf');
+            }
+        });
+        
+        function displayPDF(pdfURL) {
+            // Embed PDF using <object> tag
+            var pdfContainer = document.getElementById('pdf-container');
+            pdfContainer.innerHTML = '<object data="' + pdfURL + '" type="application/pdf" width="100%" height="100%"></object>';
+        }
+		
+		function displayVideos() {
+		    var pdfContainer = document.getElementById('pdf-container');
+            pdfContainer.innerHTML = '<h1>Some opinons concerning the exhibit</h1><p>AI generated</p><div><video width="320" height="240" controls><source src="Video_1.mov" type="video/mp4">Your browser does not support the video tag.</video><video width="320" height="240" controls><source src="Video.mov" type="video/mp4">Your browser does not support the video tag.</video><video width="320" height="240" controls><source src="Video_2.mov" type="video/mp4">Your browser does not support the video tag.</video></div><p>It took about a minute to create each of the previous video on a free generator called AI Parrot. Imagine what I could’ve done with time and resources.</p>';
+        }
+    });
+</script>
+
+</body>
+</html>
